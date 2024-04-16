@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Error404pageComponent } from './shared/error404page/error404page.component';
+import { Error404pageComponent } from './shared/pages/error404page/error404page.component';
 
 const routes: Routes = [
   {

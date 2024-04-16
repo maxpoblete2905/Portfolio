@@ -1,27 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { PortfolioRoutingModule } from './portfolio-routing.module';
-import { LayoutComponent } from './pages/layout/layout.component';
-import { ListComponent } from './pages/list/list.component';
-import { NewComponent } from './pages/new/new.component';
-import { PortfolioComponent } from './pages/portfolio/portfolio.component';
-import { EditPageComponent } from './pages/editPage/editPage.component';
-import { SearchPageComponent } from './pages/searchPage/searchPage.component';
-
+import { ProjectPageComponent } from './pages/projectPage/projectPage.component';
+import { LayoutPageComponent } from './pages/layoutPage/layoutPage.component';
+import { SkillsPageComponent } from './pages/skillsPage/skillsPage.component';
+import { ProjectsPageComponent } from './pages/projectsPage/projectsPage.component';
+import { ContactPageComponent } from './pages/contactPage/contactPage.component';
+import { ExperiencePageComponent } from './pages/experiencePage/experiencePage.component';
+import { EducationPageComponent } from './pages/educationPage/educationPage.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    LayoutComponent,
-    ListComponent,
-    NewComponent,
-    PortfolioComponent,
-    EditPageComponent,
-    SearchPageComponent
+    ProjectsPageComponent,
+    LayoutPageComponent,
+    ProjectPageComponent,
+    SkillsPageComponent,
+    ContactPageComponent,
+    ExperiencePageComponent,
+    EducationPageComponent
   ],
   imports: [
     CommonModule,
-    PortfolioRoutingModule
+    PortfolioRoutingModule,
+    SharedModule,
   ]
 })
 export class PortfolioModule { }
