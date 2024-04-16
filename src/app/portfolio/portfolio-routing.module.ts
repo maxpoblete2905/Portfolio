@@ -1,40 +1,45 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutComponent } from './pages/layout/layout.component';
-import { NewComponent } from './pages/new/new.component';
-import { ListComponent } from './pages/list/list.component';
-import { PortfolioComponent } from './pages/portfolio/portfolio.component';
-import { SearchPageComponent } from './pages/searchPage/searchPage.component';
-import { EditPageComponent } from './pages/editPage/editPage.component';
+import { LayoutPageComponent } from './pages/layoutPage/layoutPage.component';
+import { ProjectsPageComponent } from './pages/projectsPage/projectsPage.component';
+import { ProjectPageComponent } from './pages/projectPage/projectPage.component';
+import { SkillsPageComponent } from './pages/skillsPage/skillsPage.component';
+import { ContactPageComponent } from './pages/contactPage/contactPage.component';
+import { ExperiencePageComponent } from './pages/experiencePage/experiencePage.component';
+import { EducationPageComponent } from './pages/educationPage/educationPage.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
+    component: LayoutPageComponent,
     children: [
       {
-        path: 'new',
-        component: NewComponent
+        path: 'projects',
+        component: ProjectsPageComponent
       },
       {
-        path: 'search',
-        component: SearchPageComponent
+        path: 'skills',
+        component: SkillsPageComponent
       },
       {
-        path: 'edit/:id',
-        component: EditPageComponent
+        path: 'experience',
+        component: ExperiencePageComponent
       },
       {
-        path: 'list',
-        component: ListComponent
+        path: 'education',
+        component: EducationPageComponent
       },
       {
-        path: ':id',
-        component: PortfolioComponent
+        path: 'contact',
+        component: ContactPageComponent
+      },
+      {
+        path: 'project/:id',
+        component: ProjectPageComponent
       },
       {
         path: '**',
-        redirectTo: 'list'
+        redirectTo: 'projects'
       }
     ]
   }

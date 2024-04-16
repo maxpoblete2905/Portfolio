@@ -1,0 +1,11 @@
+<ul class="flex flex-col space-y-2 m-3">
+  <li *ngFor="let section of sections"
+    [routerLink]="section.route"
+    routerLinkActive="bg-blue-500"
+    class="flex items-center cursor-pointer"
+  >
+    <!-- Agrega un icono aquí (por ejemplo, usando Font Awesome o Material Icons) -->
+    <i [class]="section.icon"></i>
+    {{ section.name }}
+  </li>
+</ul>
