@@ -1,4 +1,10 @@
-<!-- profile-picture.component.html -->
-<div class="flex items-center justify-center">
-  <img src="https://via.placeholder.com/150" alt="Profile Picture" class="w-full h-full rounded-xl m-3">
+<div class="flex justify-center w-full">
+  <div class="w-10/12 h-78 bg-gray-500 flex items-center justify-center rounded-xl">
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/portfolio-ee643.appspot.com/o/portfolio%2Fperfil.jpeg?alt=media&token=5f87bbfa-80d1-43bc-a5af-9813cc199ad0"
+      alt="Profile Picture"
+      class="w-full h-full rounded-xl object-cover"
+      (load)="imageLoaded()"
+    >
+  </div>
 </div>
