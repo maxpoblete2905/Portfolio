@@ -1,8 +1,8 @@
 <ul class="flex flex-col space-y-2 m-2">
   <li *ngFor="let section of sections"
     [routerLink]="section.route"
-    routerLinkActive="bg-blue-500 rounded-lg"
-    class="flex items-center cursor-pointer border-b-2 m-2 hover:bg-blue-500 hover:rounded-lg"
+    routerLinkActive="text-blue-500"
+    class="flex items-center cursor-pointer border-b-2 m-2"
   >
     <!-- Agrega un icono aquí (por ejemplo, usando Font Awesome o Material Icons) -->
     <i class="m-3 {{ section.icon }}"></i>

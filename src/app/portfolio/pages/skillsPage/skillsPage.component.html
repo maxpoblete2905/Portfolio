@@ -1,19 +1,19 @@
 <shared-head [title]="title" />
 <div class="m-3">
   <!-- Habilidades -->
-  <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+  <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
     <!-- Tarjeta de habilidad -->
     <div *ngFor="let skill of skills" class="bg-blue-950 rounded-lg shadow-md overflow-hidden">
-      <div class="p-4 flex items-center">
+      <div class="p-2 flex items-center">
         <!-- Columna del icono de habilidad -->
-        <div class="mr-4 text-blue-500 text-4xl">
+        <div class="p-2 text-blue-500 text-4xl">
           <!-- Icono de la habilidad principal -->
           <i class="{{ skill.icon }}"></i>
         </div>
         <!-- Columna de la descripción -->
         <div>
-          <h3 class="text-xl font-semibold mb-2">{{ skill.title.toUpperCase() }}</h3>
-          <p class="text-lg text-gray-400 mb-2">{{ skill.description }}</p>
+          <h3 class="text-md font-semibold mb-2">{{ skill.title.toUpperCase() }}</h3>
+          <p class="text-sm text-gray-400 mb-2">{{ skill.description }}</p>
           <!-- Tecnologías -->
           <div class="flex flex-wrap">
             <!-- Itera sobre las tecnologías de la habilidad -->

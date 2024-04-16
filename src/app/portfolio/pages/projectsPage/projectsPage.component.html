@@ -1,10 +1,10 @@
 <shared-head [title]="title" />
 <div class="m-3">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
     <div *ngFor="let project of projects" class="bg-blue-950 rounded-lg shadow-md overflow-hidden">
       <img class="w-full h-40 object-cover object-center" [src]="project.imageUrl" [alt]="project.title">
       <div class="p-3">
-        <h3 class="text-lg font-semibold mb-2">{{ project.title.toUpperCase() }}</h3>
+        <h3 class="text-lg font-semibold mb-1">{{ project.title.toUpperCase() }}</h3>
         <p class="mb-2 text-gray-400">{{ project.description }}</p>
         <a [routerLink]="['/portfolio/project/', project.id ]" class="text-blue-500 font-semibold hover:text-blue-700">Ver más</a>
       </div>
