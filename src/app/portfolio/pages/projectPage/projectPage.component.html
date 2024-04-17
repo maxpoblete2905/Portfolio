@@ -1,9 +1,9 @@
 <shared-head [title]="'Título del Trabajo 2'"></shared-head>
 
 <div class="m-3">
-  <div class="max-w-md mx-auto bg-blue-950 rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+  <div class="background-class rounded-xl shadow-md overflow-hidden">
     <img
-      class="md:h-64 md:w-full object-cover object-center"
+      class="md:h-86 md:w-full object-cover object-center"
       [src]="project.imageUrl"
       alt="Project Image"
     >
@@ -17,8 +17,10 @@
         <p><strong>Tecnologías:</strong></p>
         <div class="flex flex-wrap">
           <!-- Itera sobre las tecnologías de la habilidad -->
-          <span *ngFor="let tech of project.technologies"
-            class="flex items-center font-semibold text-sm text-blue-600 bg-blue-100 rounded-full p-2 m-2">
+          <span
+            *ngFor="let tech of project.technologies"
+            class="flex items-center font-semibold text-sm text-blue-600 bg-blue-100 rounded-full p-1 mr-3 mt-3"
+          >
             <!-- Icono de la tecnología -->
             <i class="{{ getIconForTechnology(tech) }} text-1xl mr-2"></i>
             <!-- Nombre de la tecnología -->
@@ -27,7 +29,10 @@
         </div>
 
       </div>
-      <a [routerLink]="['/portfolio/projects/']" class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">atras</a>
+      <a [routerLink]="['/portfolio/projects/']"
+        class="mt-3 inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded-lg">
+        atras
+      </a>
     </div>
   </div>
 </div>

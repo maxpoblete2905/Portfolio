@@ -6,6 +6,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { Error404pageComponent } from './pages/error404page/error404page.component';
 import { ImagePerfilComponent } from './components/imagePerfil/imagePerfil.component';
 import { DescriptionsComponent } from './components/descriptions/descriptions.component';
+import { TitleComponent } from './components/title/title.component';
+import { SocialNetworksComponent } from './components/socialNetworks/socialNetworks.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +16,10 @@ import { DescriptionsComponent } from './components/descriptions/descriptions.co
     SidebarComponent,
     HeadComponent,
     ImagePerfilComponent,
-    DescriptionsComponent
+    DescriptionsComponent,
+    TitleComponent,
+    SocialNetworksComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +30,10 @@ import { DescriptionsComponent } from './components/descriptions/descriptions.co
     SidebarComponent,
     HeadComponent,
     ImagePerfilComponent,
-    DescriptionsComponent
+    DescriptionsComponent,
+    TitleComponent,
+    SocialNetworksComponent,
+    MenuComponent
   ]
 })
 export class SharedModule { }

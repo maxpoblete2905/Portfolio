@@ -9,6 +9,17 @@ body {
   height: 100%;
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-  font-size: 15px
+  font-size: 16px;
 }
 
+.background-class{
+  background-color: #142952;
+}
+
+.transition-class {
+  transition: transform 0.2s ease; /* Transición de 0.3 segundos */
+}
+
+.transition-class:hover {
+  transform: scale(1.01); /* Escala al 102% al pasar el mouse */
+}
