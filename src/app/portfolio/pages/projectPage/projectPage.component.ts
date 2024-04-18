@@ -1,8 +1,9 @@
 import {  Component, OnInit } from '@angular/core';
 import { Project } from '../../interfaces';
-import { ProjectService } from '../../services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FirestoreService } from '../../../firestore/firebase.service';
 
 @Component({
   selector: 'portfolio-project-page',
@@ -13,26 +14,33 @@ export class ProjectPageComponent implements OnInit {
 
   public title: string = 'Proyect';
   public id: number = 0;
-  public project!:Project;
+  public project!: Project;
+  private firestoreService: FirestoreService<Project>;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private projectService: ProjectService,
+    private firestore: AngularFirestore,
     private router: Router,
-  ){}
+  ){
+    this.firestoreService = new FirestoreService<Project>(this.firestore);
+    this.firestoreService.setCollection('projects');
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(
-        switchMap(({ id })=>this.projectService.getProjectById(id))
+        switchMap(({ id })=>this.firestoreService.getDocumentById(id))
       )
-      .subscribe((i) => {
+      .subscribe((project) => {
 
-        this.project = i as Project;
-        console.log(i);
+        if(!project){
+          this.router.navigateByUrl('portfolio/projects');
+          return;
+        }
 
-      });  }
-
+        this.project = project;
+      });
+  }
 
   getIconForTechnology(tech: string): string {
     switch (tech) {

@@ -1,21 +1,23 @@
-<div class="flex justify-center items-center h-screen">
-  <div class="bg-yellow-100 shadow-md rounded px-8 pt-6 pb-8 mb-4">
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-        Usuario
-      </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Usuario">
+<!-- app.component.html -->
+<nav class="p-4 bg-slate-300 text-blue-950">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="">
+      Hola, max
     </div>
-    <div class="mb-6">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-        Contraseña
-      </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Contraseña">
-    </div>
-    <div class="flex items-center justify-between">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-        Iniciar sesión
-      </button>
-    </div>
+    <ul class="flex items-center">
+      <li>
+        <a href="/dashboard" class="hover:text-blue-300 mx-4">Dashboard</a>
+      </li>
+      <li>
+        <button
+          (click)="logout()"
+          class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
+        >
+          Cerrar sesión
+        </button>
+      </li>
+    </ul>
   </div>
-</div>
+</nav>
+<br>
+<router-outlet></router-outlet>

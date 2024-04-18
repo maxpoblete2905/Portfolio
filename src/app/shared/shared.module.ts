@@ -9,6 +9,7 @@ import { DescriptionsComponent } from './components/descriptions/descriptions.co
 import { TitleComponent } from './components/title/title.component';
 import { SocialNetworksComponent } from './components/socialNetworks/socialNetworks.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { ImageviewerComponent } from './components/imageviewer/imageviewer.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +20,12 @@ import { MenuComponent } from './components/menu/menu.component';
     DescriptionsComponent,
     TitleComponent,
     SocialNetworksComponent,
-    MenuComponent
+    MenuComponent,
+    ImageviewerComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     Error404pageComponent,
@@ -33,7 +35,8 @@ import { MenuComponent } from './components/menu/menu.component';
     DescriptionsComponent,
     TitleComponent,
     SocialNetworksComponent,
-    MenuComponent
+    MenuComponent,
+    ImageviewerComponent
   ]
 })
 export class SharedModule { }

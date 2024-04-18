@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './pages/layout/layout.component';
-import { LoginComponent } from './pages/login/login.component';
+import { ProjectManagerComponent } from './pages/projectManager/projectManager.component';
+
 
 const routes: Routes = [
   {
@@ -10,12 +11,13 @@ const routes: Routes = [
     children: [
 
       {
-        path: 'login',
-        component: LoginComponent
+        path: 'project-manager',
+        component: ProjectManagerComponent,
+        // canActivate: [true]
       },
       {
         path: '**',
-        redirectTo: 'login'
+        redirectTo: 'project-manager'
       }
     ]
   },
@@ -25,4 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthRoutingModule { }
+export class BackofficeRoutingModule { }

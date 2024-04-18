@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Skill } from '../../interfaces';
-import { SkillService } from '../../services/skill.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AuthService } from '../../../auth/services/auth.service';
+import { FirestoreService } from '../../../firestore/firebase.service';
+
 @Component({
   selector: 'portfolio-skills-page',
   templateUrl: './skillsPage.component.html',
@@ -9,11 +12,25 @@ import { SkillService } from '../../services/skill.service';
 export class SkillsPageComponent implements OnInit {
   title: string = 'Habilidades';
   skills: Skill[] = [];
+  private firestoreService: FirestoreService<Skill>;
 
-  constructor(private projectService: SkillService){}
+  constructor(
+    private firestore: AngularFirestore,
+    private authService: AuthService
+  ) {
+    this.firestoreService = new FirestoreService<Skill>(this.firestore);
+    this.firestoreService.setCollection('skills');
+  }
+
   ngOnInit(): void {
-    this.projectService.getSkills().subscribe((i)=> {
-      this.skills = i;
+    console.log(this.authService.getUserData());
+    this.firestoreService.getDocuments().subscribe({
+      next: (skills: Skill[]) => {
+        this.skills = skills;
+      },
+      error: (error: unknown) => {
+        console.error('Error loading projects:', error);
+      }
     });
   }
 
@@ -63,8 +80,7 @@ export class SkillsPageComponent implements OnInit {
     case 'Azure':
       return 'fab fa-cloud';
     default:
-      return 'fas fa-code'; // Icono predeterminado
+      return 'fas fa-code';
     }
   }
-
 }

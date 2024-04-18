@@ -1,5 +1,7 @@
+import { View } from './view';
+
 export interface Project {
-  id: string;
+  id?: string;
   title: string;
   description: string;
   imageUrl: string;
@@ -7,4 +9,5 @@ export interface Project {
   position: string;
   client: string;
   technologies: string[];
+  views: View[];
 }

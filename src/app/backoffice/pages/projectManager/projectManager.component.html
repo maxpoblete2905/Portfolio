@@ -1,0 +1,137 @@
+<div class="flex justify-between items-center p-4 dark:bg-gray-800">
+  <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+   >Agregar Proyecto</button>
+  <button class="bg-gray-300 hover:bg-gray-400 text-black py-2 px-4 rounded"
+    >Cambiar Tema</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-12 h-screen dark:bg-gray-800">
+  <div class="sm:col-span-3 p-3">
+    <div class=" dark:bg-gray-800 shadow-lg rounded-lg p-6">
+      <form>
+        <div class="mb-6">
+          <label class="block text-gray-700 dark:text-gray-200 text-sm font-bold mb-2" for="title">
+            Título
+          </label>
+          <input
+            type="text"
+            id="title"
+            formControlName="title"
+            class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-white bg-blue-950 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-300 dark:focus:border-blue-300"
+          >
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-gray-700 dark:text-gray-200 text-sm font-bold mb-2" for="description">
+            Descripción
+          </label>
+          <textarea id="description" formControlName="description" rows="3"
+            class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-white bg-blue-950 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-300 dark:focus:border-blue-300"
+          ></textarea>
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-gray-700 dark:text-gray-200 text-sm font-bold mb-2" for="companyName">
+            Compañía
+          </label>
+          <input type="text" id="companyName" formControlName="companyName"
+            class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-white bg-blue-950 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-300 dark:focus:border-blue-300"
+          >
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-gray-700 dark:text-gray-200 text-sm font-bold mb-2" for="position">
+            Cargo
+          </label>
+          <input type="text" id="position" formControlName="position"
+            class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-white bg-blue-950 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-300 dark:focus:border-blue-300"
+          >
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-gray-700 dark:text-gray-200 text-sm font-bold mb-2" for="client">
+            Cliente
+          </label>
+          <input
+            type="text"
+            id="client"
+            formControlName="client"
+            class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-white bg-blue-950 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-300 dark:focus:border-blue-300"
+          >
+        </div>
+
+        <div class="mb-6">
+          <label
+            class="block text-gray-700 dark:text-gray-200 text-sm font-bold mb-2"
+            for="technologies"
+          >
+            Tecnologías
+          </label>
+          <input
+            type="text"
+            id="technologies"
+            formControlName="technologies"
+            class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-white bg-blue-950 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-300 dark:focus:border-blue-300"
+            placeholder="Separadas por comas"
+          >
+        </div>
+
+        <div class="flex justify-between">
+          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+            Guardar
+          </button>
+          <button type="button" (click)="projectForm = null" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+<div class="sm:col-span-9 p-3">
+  <div class=" dark:bg-gray-900 shadow-xl rounded-lg p-4">
+    <table class="table-auto w-full text-gray-700 dark:text-gray-200">
+      <thead class="bg-gray-200 dark:bg-gray-700">
+        <tr>
+          <th class="px-4 py-2">Título</th>
+          <th class="px-4 py-2">Descripción</th>
+          <th class="px-4 py-2">Compañía</th>
+          <th class="px-4 py-2">Cargo</th>
+          <th class="px-4 py-2">Cliente</th>
+          <th class="px-4 py-2">Tecnologías</th>
+          <th class="px-4 py-2">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects" class="border-b dark:border-gray-700">
+          <td class="px-4 py-2">{{ project.title }}</td>
+          <td class="px-4 py-2">{{ project.description }}</td>
+          <td class="px-4 py-2">{{ project.companyName }}</td>
+          <td class="px-4 py-2">{{ project.position }}</td>
+          <td class="px-4 py-2">{{ project.client }}</td>
+          <td class="px-4 py-2">
+            <div *ngFor="let tech of project.technologies" class="tag">{{ tech }}</div>
+          </td>
+          <td class="flex mt-3">
+            <button
+              type="submit"
+              class="mr-3 bg-blue-500 hover:bg-blue-700  font-bold py-2 px-4 rounded">
+              <i class="fas fa-save"></i>
+            </button>
+            <button
+              type="button"
+              class="bg-red-500 hover:bg-red-700 py-2 px-4 rounded">
+              <i class="fas fa-times-circle"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Sección de tabla -->
+
+<br>
+
+
+</div>
