@@ -1,5 +1,22 @@
 <shared-head [title]="title" />
 
-<div class="m-3">
-<p>experiencePage works!</p>
-</div>
+  <div class="p-3">
+<!-- src/app/components/proyectos/proyectos.component.html -->
+    <div class="space-y-5">
+      <div
+        *ngFor="let proyecto of proyectos"
+        class="bg-blue-950 p-5 rounded-lg shadow-lg text-white"
+      >
+        <h3 class="text-lg font-bold">{{ proyecto.nombre }}</h3>
+        <p>{{ proyecto.descripcion }}</p>
+        <br>
+        <ul>
+          <li *ngFor="let logro of proyecto.logros">{{ logro }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+

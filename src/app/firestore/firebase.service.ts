@@ -9,7 +9,6 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 export class FirestoreService<T> {
   private collection!: AngularFirestoreCollection<T>;
 
-
   constructor(private firestore: AngularFirestore) { }
 
   setCollection(path: string) {

@@ -14,7 +14,7 @@
             *ngFor="let tech of project.technologies"
             class="flex items-center font-semibold text-sm text-blue-600 bg-blue-100 rounded-full p-1 mr-3 mt-3"
           >
-            <i class="{{ getIconForTechnology(tech) }} text-xl mr-2"></i>
+            <i class="{{ getIconForName(tech) }} text-xl mr-2"></i>
             {{ tech }}
           </span>
         </div>

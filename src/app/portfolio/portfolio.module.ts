@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { ProjectPageComponent } from './pages/projectPage/projectPage.component';
-import { LayoutPageComponent } from './pages/layoutPage/layoutPage.component';
+import { LayoutPageComponent } from './pages/layout/layoutPage.component';
 import { SkillsPageComponent } from './pages/skillsPage/skillsPage.component';
 import { ProjectsPageComponent } from './pages/projectsPage/projectsPage.component';
 import { ContactPageComponent } from './pages/contactPage/contactPage.component';
