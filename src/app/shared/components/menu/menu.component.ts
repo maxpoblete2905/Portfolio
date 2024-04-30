@@ -17,5 +17,4 @@ export class MenuComponent {
     { route: 'contact', name: 'Contactos', icon: 'fas fa-envelope' },
   ];
 
-
 }

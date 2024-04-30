@@ -19,7 +19,7 @@ export class ImageviewerComponent {
     if (this.currentIndex < this.images.length - 1) {
       this.currentIndex++;
     } else {
-      this.currentIndex = 0; // Loop back to the first image
+      this.currentIndex = 0;
     }
   }
 
@@ -27,7 +27,7 @@ export class ImageviewerComponent {
     if (this.currentIndex > 0) {
       this.currentIndex--;
     } else {
-      this.currentIndex = this.images.length - 1; // Loop back to the last image
+      this.currentIndex = this.images.length - 1;
     }
   }
 
