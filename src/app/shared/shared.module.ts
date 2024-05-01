@@ -10,6 +10,8 @@ import { TitleComponent } from './components/title/title.component';
 import { SocialNetworksComponent } from './components/socialNetworks/socialNetworks.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ImageviewerComponent } from './components/imageviewer/imageviewer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,13 @@ import { ImageviewerComponent } from './components/imageviewer/imageviewer.compo
     TitleComponent,
     SocialNetworksComponent,
     MenuComponent,
-    ImageviewerComponent
+    ImageviewerComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     Error404pageComponent,
@@ -36,7 +40,8 @@ import { ImageviewerComponent } from './components/imageviewer/imageviewer.compo
     TitleComponent,
     SocialNetworksComponent,
     MenuComponent,
-    ImageviewerComponent
+    ImageviewerComponent,
+    InputComponent
   ]
 })
 export class SharedModule { }

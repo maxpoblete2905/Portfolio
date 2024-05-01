@@ -1,1 +1,55 @@
-<p>mantainer works!</p>
+<div class="flex">
+  <!-- Columna izquierda con 5 columnas -->
+  <div class="w-5/12">
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+        <!-- Información del Proyecto -->
+        <div class="col-span-2 p-2 m-2 bg-gray-900 rounded-lg mt-4">
+          <h2 class="text-lg mb-2 border-b-2">Project Information</h2>
+          <div class="grid grid-cols-2">
+            <div class="mb-2">
+              <label for="title" class="block text-sm">Title:</label>
+              <input type="text" id="title" formControlName="title" class="focus:border-none w-11/12 input-field-dark text-black">
+            </div>
+            <div class="mb-2">
+              <label for="imageUrl" class="block text-sm">Image URL:</label>
+              <input type="text" id="imageUrl" formControlName="imageUrl" class=" w-11/12 input-field-dark text-black">
+            </div>
+            <div class="mb-2">
+              <label for="companyName" class="block text-sm">Company Name:</label>
+              <input type="text" id="companyName" formControlName="companyName" class=" w-11/12 input-field-dark text-black">
+            </div>
+            <div class="mb-2">
+              <label for="description" class="block text-sm">Description:</label>
+              <textarea id="description" formControlName="description" class=" w-11/12 input-field-dark text-black"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detalles del Proyecto -->
+        <div class="col-span-2 p-2 m-2 bg-gray-900 rounded-lg mt-4">
+          <h2 class="text-lg mb-2 border-b-2">Project Details</h2>
+          <div class="mb-4">
+            <label for="position" class="block text-sm mb-2">Position:</label>
+            <input type="text" id="position" formControlName="position" class="input-field-dark text-black">
+          </div>
+          <div class="mb-4">
+            <label for="client" class="block text-sm mb-2">Client:</label>
+            <input type="text" id="client" formControlName="client" class="input-field-dark text-black">
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="col-span-2 p-2 m-2 bg-gray-900 rounded-lg mt-4">
+            <button
+              class="btn-primary-dark m-3 bg-red-600 p-2 rounded-lg ">Cancelar</button>
+            <button type="submit"
+              class="btn-primary-dark m-3 bg-blue-600 p-2 rounded-lg ">Submit</button>
+        </div>
+    </form>
+  </div>
+
+  <!-- Columna derecha con 7 columnas -->
+  <div class="w-7/12 p-4">
+    <!-- Aquí va el contenido de la columna derecha -->
+  </div>
+</div>
