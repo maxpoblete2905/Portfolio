@@ -3,21 +3,20 @@
     <div class="grid grid-cols-2">
       <!-- Tarjeta para el formulario -->
       <div class="shadow-md rounded p-2 m-2">
-        <!-- Campo de Título -->
-        <div class="bg-gray-700 rounded p-4 mb-2">
+ <div class="bg-gray-700 rounded p-4 mb-2">
           <h2 class="text-lg mb-4 border-b-2">Add Propiedades</h2>
           <!-- titulo -->
-          <label for="titulo" class="block text-gray-200 text-sm mb-2"
+          <label for="titulo" class="block text-gray-200 text-sm my-2"
             >Title:</label
           >
           <input
             type="text"
             id="title"
             formControlName="title"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+            class=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
           />
           <!-- Formulario client -->
-          <label for="client" class="block text-gray-200 text-sm mb-2"
+          <label for="client" class="block text-gray-200 text-sm my-2"
             >Client:</label
           >
           <input
@@ -27,7 +26,7 @@
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
           />
           <!-- Formulario client -->
-          <label for="companyName" class="block text-gray-200 text-sm mb-2"
+          <label for="companyName" class="block text-gray-200 text-sm my-2"
             >Company name:</label
           >
           <input
@@ -39,7 +38,7 @@
           <!-- Formulario client -->
           <label
             for="descriptionProject"
-            class="block text-gray-200 text-sm mb-2"
+            class="block text-gray-200 text-sm my-2"
             >Description Project:</label
           >
           <input
@@ -49,7 +48,7 @@
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
           />
           <!-- Formulario client -->
-          <label for="imageUrl" class="block text-gray-200 text-sm mb-2"
+          <label for="imageUrl" class="block text-gray-200 text-sm my-2"
             >ImageUrl:</label
           >
           <input
@@ -59,7 +58,7 @@
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
           />
           <!-- Formulario client -->
-          <label for="position" class="block text-gray-200 text-sm mb-2"
+          <label for="position" class="block text-gray-200 text-sm my-2"
             >Position:</label
           >
           <input
@@ -68,7 +67,8 @@
             formControlName="position"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
           />
-        </div>
+        </div>        <!-- Campo de Título -->
+
         <!-- Formulario para objeto -->
         <div class="bg-gray-700 rounded p-4 mt-2">
           <h2 class="text-lg mb-4 border-b-2">Add Views</h2>
@@ -171,38 +171,26 @@
         <!-- Tabla para mostrar los View -->
         <div class="bg-gray-700 rounded p-4 mb-2">
           <h3 class="text-lg font-bold mb-2">Views:</h3>
-          <table
-            class="table-auto w-full"
-            *ngIf="formulario.controls['views'].value.length > 0"
-          >
+          <table class="table-auto w-full" *ngIf="formulario.controls['views'].value.length > 0">
             <thead>
               <tr>
-                <th class="px-4 py-2">Src</th>
-                <th class="px-4 py-2">Description</th>
-                <th class="px-4 py-2">delete</th>
+                <th class="w-1/2 px-4 py-2">Src</th>
+                <th class="w-1/2 px-4 py-2">Description</th>
+                <th class="w-1/8 px-4 py-2">Delete</th> <!-- Aquí se ajustó el ancho de la columna del botón -->
               </tr>
             </thead>
             <tbody>
-              <tr
-                *ngFor="
-                  let view of formulario.controls['views'].value;
-                  let i = index
-                "
-              >
-                <td class="border px-4 py-2">{{ view.src }}</td>
-                <td class="border px-4 py-2">{{ view.description }}</td>
-                <td class="border px-4 py-2">
-                  <button
-                    type="button"
-                    (click)="eliminarObjeto(i)"
-                    class="text-red-500 font-bold"
-                  >
-                    X
-                  </button>
+              <tr *ngFor="let view of formulario.controls['views'].value; let i = index">
+                <td class="w-1/2 border px-4 py-2">{{ view.src }}</td>
+                <td class="w-1/2 border px-4 py-2">{{ view.description }}</td>
+                <td class="w-1/8 border px-4 py-2 items-center justify-center"> <!-- Se ajustó el ancho de la columna del botón y se centró el contenido -->
+                  <button type="button" (click)="eliminarObjeto(i)" class="text-red-500 font-bold">delet</button>
                 </td>
+
               </tr>
             </tbody>
           </table>
+
         </div>
         <!-- Lista para mostrar los Technologies -->
         <div class="bg-gray-700 rounded p-4 mb-2">
