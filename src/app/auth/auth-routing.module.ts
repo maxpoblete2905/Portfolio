@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { LoginComponent } from './pages/login/login.component';
-import { MantainerComponent } from './pages/mantainer/mantainer.component';
+import { AddPageComponent } from './pages/addPage/addPage.component';
+import { ListPageComponent } from './pages/listPage/listPage.component';
 
 const routes: Routes = [
   {
@@ -14,10 +15,13 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent
       },
-
       {
-        path: 'mantainer',
-        component: MantainerComponent
+        path: 'add',
+        component: AddPageComponent
+      },
+      {
+        path: 'list',
+        component: ListPageComponent
       },
       {
         path: '**',
