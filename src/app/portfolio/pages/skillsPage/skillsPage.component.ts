@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Skill } from '../../interfaces';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AuthService } from '../../../auth/services/auth.service';
 import { FirestoreService } from '../../../firestore/firebase.service';
 import { IconServicesTsService } from '../../../shared/services/icon.services.ts.service';
 
@@ -17,7 +16,6 @@ export class SkillsPageComponent implements OnInit {
 
   constructor(
     private firestore: AngularFirestore,
-    private authService: AuthService,
     private iconServicesTsService: IconServicesTsService,
   ) {
     this.firestoreService = new FirestoreService<Skill>(this.firestore);

@@ -3,10 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Error404pageComponent } from './shared/pages/error404page/error404page.component';
 
 const routes: Routes = [
-  {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
-  },
+
   {
     path: 'portfolio',
     loadChildren: () => import('./portfolio/portfolio.module').then(m => m.PortfolioModule)

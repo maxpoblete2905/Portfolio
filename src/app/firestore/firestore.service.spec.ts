@@ -5,14 +5,12 @@ import { of } from 'rxjs';
 
 // Mocks
 
-
 const collectionSpy = jasmine.createSpyObj({
   snapshotChanges: of([{ payload: { doc: { data: () => {}, id: '123' } } }]),
   doc: jasmine.createSpy('doc'),
   add: jasmine.createSpy('add').and.returnValue(Promise.resolve()),
   update: jasmine.createSpy('update').and.returnValue(of({})), // Simular un observable vacío para update()
   delete: jasmine.createSpy('delete').and.returnValue(of({})) // Simular un observable vacío para delete()
-
 });
 
 const firestoreSpy = jasmine.createSpyObj('AngularFirestore', {
