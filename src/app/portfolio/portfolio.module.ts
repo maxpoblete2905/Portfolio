@@ -9,6 +9,7 @@ import { ContactPageComponent } from './pages/contactPage/contactPage.component'
 import { ExperiencePageComponent } from './pages/experiencePage/experiencePage.component';
 import { EducationPageComponent } from './pages/educationPage/educationPage.component';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     PortfolioRoutingModule,
     SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class PortfolioModule { }
