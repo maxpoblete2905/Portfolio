@@ -4,24 +4,24 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class IconServicesTsService {
-
   constructor() { }
-
   getIconForTechnology(tech: string): string {
     switch (tech) {
     case 'Spring Boot':
-      return 'fab fa-java';
     case 'Microservicios':
     case 'REST API':
-    case 'Node.js':
-    case 'Nest.js':
-      return 'fab fa-node-js';
+      return 'fab fa-java';
+    case 'Node js':
+      return 'fa-brands fa-node';
+    case 'Nest js':
+      return 'fa-brands fa-node-js';
     case 'React':
+      return 'fa-brands fa-react';
     case 'Angular':
-    case 'Vue.js':
       return 'fab fa-js';
     case 'MongoDB':
     case 'Firestore':
+    case 'BigQuery':
       return 'fas fa-database';
     case 'Bootstrap':
     case 'Tailwind CSS':
@@ -32,9 +32,10 @@ export class IconServicesTsService {
     case 'Angular Material':
     case 'PrimeNG':
       return 'fas fa-book-open';
+    case 'PostgreSQL':
+      return 'fa-sharp fa-solid fa-database';
     case 'SQL MySQL':
     case 'SQLServer':
-    case 'PostgreSQL':
       return 'fas fa-database';
     case 'Patrones de diseño':
       return 'fas fa-paint-brush';
@@ -50,8 +51,9 @@ export class IconServicesTsService {
     case 'Trunk base':
       return 'fas fa-code-branch';
     case 'Google Cloud Platform (GCP)':
+      return 'fa-brands fa-google';
     case 'Azure':
-      return 'fab fa-cloud';
+      return 'fa-regular fa-cloud';
     default:
       return 'fas fa-code';
     }

@@ -1,20 +1,20 @@
-<shared-head [title]="title" />
 <!-- educationPage.component.html -->
+<shared-head [title]="title" />
+
 <div class="m-3">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Educación -->
+    <div *ngFor="let education of educations" class="bg-blue-950 p-4 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-lg">
+      <h2 class="text-lg font-semibold">{{ education.title }}</h2>
+      <p class="text-white">{{ education.institution }}</p>
+      <p class="text-white">{{ education.startYear }} - {{ education.endYear }}</p>
+      <p>{{ education.description }}</p>
+    </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-  <!-- Educación -->
-  <div *ngFor="let education of educations" class="bg-blue-950 p-4 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-lg">
-    <h2 class="text-lg font-semibold">{{ education.title }}</h2>
-    <p class="text-white">{{ education.institution }}</p>
-    <p class="text-white">{{ education.startYear }} - {{ education.endYear }}</p>
-    <p>{{ education.description }}</p>
+    <!-- Certificaciones -->
+    <div *ngFor="let certification of certifications" class="bg-blue-950 p-4 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-lg">
+      <h2 class="text-lg font-semibold">{{ certification.name }}</h2>
+      <p class="text-white">{{ certification.year }}</p>
+    </div>
   </div>
-
-  <!-- Certificaciones -->
-  <div *ngFor="let certification of certifications" class="bg-blue-950 p-4 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-lg">
-    <h2 class="text-lg font-semibold">{{ certification.name }}</h2>
-    <p class="text-white">{{ certification.year }}</p>
-  </div>
-</div>
 </div>

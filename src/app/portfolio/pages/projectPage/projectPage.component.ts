@@ -58,4 +58,25 @@ export class ProjectPageComponent implements OnInit {
     return this.iconServicesTsService.getIconForTechnology(tech);
   }
 
+  //////////
+
+  public currentIndex: number = 0;
+
+
+  nextImage(): void {
+    if (this.currentIndex < this.project.views.length - 1) {
+      this.currentIndex++;
+    } else {
+      this.currentIndex = 0;
+    }
+  }
+
+  previousImage(): void {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    } else {
+      this.currentIndex = this.project.views.length - 1;
+    }
+  }
+  //////
 }

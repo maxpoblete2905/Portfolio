@@ -11,30 +11,30 @@ export class EducationPageComponent {
   // Array de educación
   educations = [
     {
-      institution: 'Intituto Profacional AIEP',
+      institution: 'Intituto Profesional AIEP',
       startYear: 2016,
       endYear: 2018,
-      title: 'Programador computacional.',
+      title: 'Programador Computacional',
       description: 'Especialización en desarrollo de software y sistemas de información.'
     },
     {
-      institution: 'Intituto Profacional AIEP',
+      institution: 'Intituto Profesional AIEP',
       startYear: 2019,
       endYear: 2020,
-      title: 'Analista de sistamas.',
-      description: 'Capacitación técnica en mantenimiento de redes y soporte informático.'
+      title: 'Análisis de Sistemas',
+      description: 'Especialización en análisis de sistemas.'
     }
   ];
 
   // Array de certificaciones
   certifications = [
     {
-      name: 'Certificado Microsoft',
+      name: 'Database Administration',
       year: 2019
     },
     {
-      name: 'AWS Certified Solutions Architect – Associate',
-      year: 2021
+      name: 'SCRUM FUNDAMENTAL CERTIFIED (SFC)',
+      year: 2019
     }
   ];
 }

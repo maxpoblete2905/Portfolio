@@ -6,35 +6,58 @@ import { Component } from '@angular/core';
   styleUrl: './experiencePage.component.css',
 })
 export class ExperiencePageComponent {
-  title: string = 'Mis Experiencias';
+  title: string = 'Experiencias';
 
-  proyectos = [
+  colaboradorInfo = [
     {
-      nombre: 'Mantenedor de Variables',
-      descripcion: 'Esta aplicación facilita la gestión de variables críticas en entornos de producción.',
-      logros: [
-        'Concepción y desarrollo de la arquitectura completa.',
-        'Implementación de sistemas robustos para la autenticación.',
-        'Creación de una interfaz de usuario fluida y amigable.'
+      title: 'Colaborador en el desarrollo y diseño de Interfaz de Usuario:',
+      content: [
+        'Implementé principios de diseño centrados en el usuario para mejorar la usabilidad y la experiencia del usuario.',
+        'Colaboré estrechamente con el equipo de diseño para traducir los requisitos del cliente en interfaces de usuario intuitivas y atractivas.'
       ]
     },
     {
-      nombre: 'Recomendador Dinámico para la Producción de Papel',
-      descripcion: 'Una solución avanzada que mejora la eficiencia en la producción de papel.',
-      logros: [
-        'Análisis exhaustivo de datos operacionales en tiempo real.',
-        'Desarrollo de algoritmos de recomendación sofisticados.',
-        'Trabajo conjunto con el equipo de producción.'
+      title: 'Colaborador en el desarrollo de backend, API Rest y Microservicios:',
+      content: [
+        'Desarrollé soluciones backend robustas y escalables utilizando tecnologías modernas como [nombre de la tecnología].',
+        'Contribuí al diseño y la implementación de APIs RESTful y microservicios, garantizando la interoperabilidad y la eficiencia del sistema.'
       ]
     },
     {
-      nombre: 'Simulador Dinámico de Escenarios de Producción',
-      descripcion: 'Herramienta interactiva diseñada para optimizar procesos operativos.',
-      logros: [
-        'Diseño y desarrollo de un simulador de escenarios.',
-        'Implementación de visualizaciones interactivas.',
-        'Colaboración con ingenieros de procesos.'
+      title: 'Colaborador y administrador de bases de datos:',
+      content: [
+        'Gestioné eficientemente bases de datos [nombre de la base de datos] para garantizar la integridad, seguridad y rendimiento de los datos.',
+        'Colaboré en el diseño de esquemas de bases de datos optimizados para satisfacer los requisitos del sistema y las necesidades del negocio.'
+      ]
+    },
+    {
+      title: 'Colaborador en el desarrollo de test unitarios y pruebas de integración:',
+      content: [
+        'Implementé pruebas unitarias exhaustivas para validar el funcionamiento individual de los componentes del software.',
+        'Contribuí al desarrollo e implementación de pruebas de integración automatizadas, garantizando la calidad y la estabilidad del sistema en su conjunto.'
+      ]
+    },
+    {
+      title: 'Experiencia con servicios Cloud de Firestore:',
+      content: [
+        'Desarrollé aplicaciones utilizando servicios Cloud de Firestore para gestionar bases de datos en la nube de manera eficiente y escalable.',
+        'Implementé funcionalidades avanzadas como consultas en tiempo real y sincronización de datos para mejorar la experiencia del usuario.'
+      ]
+    },
+    {
+      title: 'Experiencia con microservicios:',
+      content: [
+        'Participé en el diseño, desarrollo y despliegue de arquitecturas basadas en microservicios para crear sistemas modulares y escalables.',
+        'Utilicé tecnologías como Docker y Kubernetes para gestionar y orquestar contenedores, asegurando la alta disponibilidad y el rendimiento del sistema.'
+      ]
+    },
+    {
+      title: 'Experiencia con sistema de diseño en Storybook:',
+      content: [
+        'Contribuí al desarrollo de un sistema de diseño utilizando Storybook, permitiendo la creación y documentación de componentes de manera modular y reutilizable.',
+        'Colaboré con el equipo para establecer y mantener un conjunto coherente de componentes y estilos, mejorando la consistencia y eficiencia en el desarrollo.'
       ]
     }
   ];
 }
+

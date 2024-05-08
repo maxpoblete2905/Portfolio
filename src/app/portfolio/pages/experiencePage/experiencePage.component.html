@@ -1,20 +1,15 @@
 <shared-head [title]="title" />
 
-  <div class="p-3">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-      <div
-        *ngFor="let proyecto of proyectos"
-        class="bg-blue-950 rounded-lg shadow-lg p-3 text-white transition duration-300 transform hover:scale-105 hover:shadow-lg">
-        <h3 class="text-lg font-bold">{{ proyecto.nombre }}</h3>
-        <p>{{ proyecto.descripcion }}</p>
-        <br>
-        <ul>
-          <li *ngFor="let logro of proyecto.logros" class="list-disc ml-5">{{ logro }}</li>
-        </ul>
-      </div>
-    </div>
+<div class="m-3">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+  <div *ngFor="let section of colaboradorInfo"
+    class="bg-blue-950 rounded-lg my-3 p-3
+    overflow-hidden transition duration-300 transform hover:scale-105 hover:shadow-lg"
+  >
+    <h3 class="text-lg font-bold mb-2">{{ section.title }}</h3>
+    <p class="text-gray-300 mb-4" *ngFor="let paragraph of section.content">{{ paragraph }}</p>
   </div>
-
-
+</div>
+</div>
 
 
