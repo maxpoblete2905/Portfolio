@@ -1,11 +1,14 @@
-<!-- header.component.html -->
 <div class="grid grid-cols-1 sm:grid-cols-12 h-screen">
+  <!-- Sidebar -->
   <div class="sm:col-span-3 p-0 h-full flex flex-col">
-    <div class="sticky top-0 h-full">
+    <div class="top-0 h-full">
       <shared-sidebar />
     </div>
   </div>
-  <div class="sm:col-span-9 p-0 h-full bg-slate-300 text-white overflow-y-auto">
+
+  <!-- Contenido de las rutas -->
+  <div class="sm:col-span-9 p-0 h-full bg-slate-300 text-white
+               sm:overflow-y-auto">
     <router-outlet />
   </div>
 </div>

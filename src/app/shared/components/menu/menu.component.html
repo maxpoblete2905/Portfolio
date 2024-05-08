@@ -1,4 +1,6 @@
-  <ul class="flex flex-col mx-3 ">
+<div class="mx-3">
+  <!-- Menú para pantallas grandes -->
+  <ul class="hidden sm:flex flex-col">
     <li *ngFor="let section of sections"
       [routerLink]="section.route"
       routerLinkActive="text-blue-400"
@@ -10,3 +12,16 @@
     </li>
   </ul>
 
+  <!-- Menú para pantallas pequeñas (móvil) -->
+  <ul class="sm:hidden flex justify-center gap-5">
+    <li *ngFor="let section of sections"
+      [routerLink]="section.route"
+      routerLinkActive="text-blue-400"
+      class="cursor-pointer ml-4 mt-4 flex"
+    >
+      <!-- Agrega un icono aquí (por ejemplo, usando Font Awesome o Material Icons) -->
+      <i class="{{ section.icon }}"></i>
+    </li>
+  </ul>
+
+</div>
