@@ -1,22 +1,21 @@
-import {  Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../../firestore/firebase.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 interface PersonalInformation {
-  value: string
-  label: string
-  icon: string
+  value: string;
+  label: string;
+  icon: string;
 }
 
 @Component({
   selector: 'shared-persona-information',
   templateUrl: './personaInformation.component.html',
-  styleUrl: './personaInformation.component.css',
+  styleUrls: ['./personaInformation.component.css'],
 })
-export class PersonaInformationComponent {
+export class PersonaInformationComponent implements OnInit {
   private firestoreService: FirestoreService<PersonalInformation>;
   personalInformation: PersonalInformation[] = [];
-
 
   constructor(private firestore: AngularFirestore) {
     this.firestoreService = new FirestoreService<PersonalInformation>(this.firestore);
@@ -30,8 +29,21 @@ export class PersonaInformationComponent {
       },
       error: (error) => {
         console.error('Error loading projects:', error);
-      }
+      },
     });
   }
 
+  realizarAccion(seleccion: string): void {
+    switch (seleccion) {
+    case 'phone':
+      window.location.href = 'tel:+920055404';
+      break;
+    case 'whatsapp':
+      window.open('https://web.whatsapp.com/', '_blank');
+      break;
+    case 'email':
+      window.location.href = 'mailto:max.poblete2905@gmail.com';
+      break;
+    }
+  }
 }
