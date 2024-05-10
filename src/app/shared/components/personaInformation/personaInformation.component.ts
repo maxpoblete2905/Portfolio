@@ -33,16 +33,16 @@ export class PersonaInformationComponent implements OnInit {
     });
   }
 
-  realizarAccion(seleccion: string): void {
+  realizarAccion(seleccion: string, value: string): void {
     switch (seleccion) {
     case 'phone':
-      window.location.href = 'tel:+920055404';
+      window.location.href = `tel:+${value}`;
       break;
     case 'whatsapp':
       window.open('https://web.whatsapp.com/', '_blank');
       break;
     case 'email':
-      window.location.href = 'mailto:max.poblete2905@gmail.com';
+      window.location.href = `mailto:${value}`;
       break;
     }
   }

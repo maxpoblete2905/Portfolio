@@ -1,4 +1,4 @@
-import {  Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Project } from '../../interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
@@ -12,7 +12,6 @@ import { IconServicesTsService } from '../../../shared/services/icon.services.ts
   styleUrl: './projectPage.component.css',
 })
 export class ProjectPageComponent implements OnInit {
-
   public title: string = 'Proyect';
   public id: number = 0;
   public project: Project = {
@@ -23,7 +22,7 @@ export class ProjectPageComponent implements OnInit {
     position: '',
     client: '',
     technologies: [],
-    views: []
+    views: [],
   };
 
   private firestoreService: FirestoreService<Project>;
@@ -32,20 +31,17 @@ export class ProjectPageComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private firestore: AngularFirestore,
     private router: Router,
-    private iconServicesTsService: IconServicesTsService,
-  ){
+    private iconServicesTsService: IconServicesTsService
+  ) {
     this.firestoreService = new FirestoreService<Project>(this.firestore);
     this.firestoreService.setCollection('projects');
   }
 
   ngOnInit(): void {
     this.activatedRoute.params
-      .pipe(
-        switchMap(({ id })=>this.firestoreService.getDocumentById(id))
-      )
+      .pipe(switchMap(({ id }) => this.firestoreService.getDocumentById(id)))
       .subscribe((project) => {
-
-        if(!project){
+        if (!project) {
           this.router.navigateByUrl('portfolio/projects');
           return;
         }
@@ -58,10 +54,7 @@ export class ProjectPageComponent implements OnInit {
     return this.iconServicesTsService.getIconForTechnology(tech);
   }
 
-  //////////
-
   public currentIndex: number = 0;
-
 
   nextImage(): void {
     if (this.currentIndex < this.project.views.length - 1) {
@@ -78,5 +71,4 @@ export class ProjectPageComponent implements OnInit {
       this.currentIndex = this.project.views.length - 1;
     }
   }
-  //////
 }

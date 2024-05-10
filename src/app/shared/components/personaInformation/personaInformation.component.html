@@ -4,7 +4,7 @@
   <div
     *ngFor="let personal of personalInformation"
     class="flex items-center mb-4 cursor-pointer"
-    (click)="realizarAccion(personal.label)"
+    (click)="realizarAccion(personal.label, personal.value)"
   >
     <img [src]="personal.icon" alt="" class="h-8 w-8 mr-5" />
     <span>{{ personal.value }} </span>
