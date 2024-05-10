@@ -1,6 +1,6 @@
 <div class="m-3">
   <div
-    class="background-class rounded-xl shadow-md overflow-hidden w-full h-auto"
+    class="background-class rounded-xl shadow-md overflow-hidden w-full h-full"
   >
     <!-- <shared-imageviewer [images]="project.views" /> -->
     <div class="flex flex-col items-center w-full rounded-b-lg">
@@ -9,7 +9,7 @@
           *ngIf="project.views[currentIndex] && project.views[currentIndex].src"
           [src]="project.views[currentIndex].src"
           [alt]="project.views[currentIndex].description"
-          class="w-full min-h-96 max-h-96 object-cover rounded-b-0 shadow-xl"
+          class="w-full object-cover rounded-b-0 shadow-xl"
         />
         <div
           class="absolute inset-0 flex items-center justify-between"
@@ -46,9 +46,7 @@
         <div class="flex flex-wrap">
           <span
             *ngFor="let tech of project.technologies"
-            class="flex items-center font-semibold
-              text-sm text-blue-600 bg-blue-100
-              rounded-full m-2 px-2"
+            class="flex items-center font-semibold text-sm text-blue-600 bg-blue-100 rounded-full m-2 px-2"
           >
             <i class="{{ getIconForName(tech) }} text-xl mr-2"></i>
             {{ tech }}
