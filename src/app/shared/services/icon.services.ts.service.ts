@@ -54,6 +54,8 @@ export class IconServicesTsService {
       return 'fa-brands fa-google';
     case 'Azure':
       return 'fa-regular fa-cloud';
+    case 'AWS':
+      return 'fa-solid fa-cloud';
     default:
       return 'fas fa-code';
     }
