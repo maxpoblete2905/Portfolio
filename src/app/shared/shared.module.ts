@@ -12,6 +12,7 @@ import { ImageviewerComponent } from './components/imageviewer/imageviewer.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './components/input/input.component';
 import { ContactInformationComponent } from './components/contactInformation/contactInformation.component';
+import { DownloadCvComponent } from './components/download-cv/download-cv.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ContactInformationComponent } from './components/contactInformation/con
     MenuComponent,
     ImageviewerComponent,
     InputComponent,
-    ContactInformationComponent
+    ContactInformationComponent,
+    DownloadCvComponent,
   ],
   imports: [
     CommonModule,

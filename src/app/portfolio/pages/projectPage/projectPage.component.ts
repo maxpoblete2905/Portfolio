@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from '../../interfaces';
+import { DarkMode, Project } from '../../interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -14,6 +14,8 @@ import { IconServicesTsService } from '../../../shared/services/icon.services.ts
 export class ProjectPageComponent implements OnInit {
   public title: string = 'Proyect';
   public id: number = 0;
+  private firebaseDarkMode: FirestoreService<DarkMode>;
+  public darkMode: boolean = true;
   public project: Project = {
     title: '',
     description: '',
@@ -35,9 +37,21 @@ export class ProjectPageComponent implements OnInit {
   ) {
     this.firestoreService = new FirestoreService<Project>(this.firestore);
     this.firestoreService.setCollection('projects');
+    this.firebaseDarkMode = new FirestoreService<DarkMode>(this.firestore);
+    this.firebaseDarkMode.setCollection('style');
   }
 
   ngOnInit(): void {
+    this.firebaseDarkMode.getDocuments().subscribe({
+      next: (data: DarkMode[]) => {
+        console.log(data)
+        this.darkMode = data[0].isStyleOne
+      },
+      error: (error: unknown) => {
+        console.error('Error cargando habilidades:', error);
+      }
+    });
+
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.firestoreService.getDocumentById(id)))
       .subscribe((project) => {

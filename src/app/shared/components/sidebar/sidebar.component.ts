@@ -19,7 +19,6 @@ export class SidebarComponent {
 
   constructor(
     private firestore: AngularFirestore,
-    private storageService: StorageService
   ) {
     this.firestoreService = new FirestoreService<PersonalInformation>(this.firestore);
     this.firestoreService.setCollection('personal-information');
@@ -46,17 +45,5 @@ export class SidebarComponent {
         console.error('Error loading projects:', error);
       }
     });
-  }
-
-  async downloadPDF() {
-    const fileUrl = await this.storageService.getFileUrl('portfolio/cv/cv_max_poblete.pdf');
-    const link = document.createElement('a');
-    link.href = fileUrl;
-    link.target = '_blank';
-    const fecha = new Date().toISOString().split('T')[0];
-    link.download = `cv_max_poblete_${fecha}.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   }
 }

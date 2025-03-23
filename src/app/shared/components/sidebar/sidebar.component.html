@@ -3,11 +3,7 @@
   <shared-image-perfil />
   <share-descriptions [description]="description" />
   <shared-menu />
-  <br>
-  <button class="btn-download" (click)="downloadPDF()">
-    <i class="fas fa-file-pdf"></i> Descargar curriculum PDF
-  </button>
-  
+  <app-download-cv />
   <!-- Este es el bloque que quieres ocultar en tamaño sm y mostrar en otros tamaños -->
   <shared-social-networks class="hidden md:block mt-auto" />
 </div>

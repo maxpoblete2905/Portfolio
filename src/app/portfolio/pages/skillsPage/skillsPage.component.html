@@ -1,28 +1,49 @@
 <shared-head [title]="title" />
-<div class="m-6">
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+
+<!-- Estilo 1 -->
+<div class="m-6" *ngIf="darkMode">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <div *ngFor="let skill of skills"
-      class="bg-blue-950 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-      <div class="p-6 flex items-start gap-4">
-        <!-- Ícono de habilidad -->
-        <div class="flex-shrink-0 w-12 h-12">
-          <img src="{{skill.icon}}" alt="Tecnología" class="w-full h-full object-contain" />
-        </div>
+      class="bg-gray-800 border border-gray-700 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl p-6 flex flex-col items-center text-center">
 
-        <!-- Detalles de la habilidad -->
-        <div class="flex-1">
-          <h3 class="text-lg font-bold text-white mb-2">{{ skill.title.toUpperCase() }}</h3>
-          <p class="text-sm text-gray-400 mb-4">{{ skill.description }}</p>
+      <div class="w-14 h-14 mb-4 bg-gray-700 p-2 rounded-lg shadow-md">
+        <img src="{{ skill.icon }}" alt="Tecnología" class="w-full h-full object-contain" />
+      </div>
 
-          <!-- Tecnologías relacionadas -->
-          <div class="flex flex-wrap gap-2">
-            <span *ngFor="let tech of skill.technologies"
-              class="flex items-center gap-2 font-medium text-sm text-blue-600 bg-blue-100 rounded-full px-3 py-1">
-              <img src="{{ getIconForName(tech) }}" alt="Tecnología" class="w-5 h-5" />
-              {{ tech }}
-            </span>
-          </div>
-        </div>
+      <h3 class="text-lg font-bold text-white mb-2">{{ skill.title.toUpperCase() }}</h3>
+      <p class="text-sm text-gray-400 mb-4">{{ skill.description }}</p>
+
+      <div class="flex flex-wrap justify-center gap-2 mt-2">
+        <span *ngFor="let tech of skill.technologies"
+          class="flex items-center gap-2 font-medium text-sm text-blue-400 bg-gray-700 rounded-full px-3 py-1 shadow-md">
+          <img [src]="technologyURL[tech]" alt="Tecnología" class="w-5 h-5" />
+          {{ tech }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Estilo 2 -->
+<div class="m-6" *ngIf="!darkMode">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <div *ngFor="let skill of skills"
+      class="bg-blue-950 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl p-6 flex flex-col items-center text-center">
+
+      <div class="w-16 h-16 mb-4">
+        <img src="{{ skill.icon }}" alt="Tecnología" class="w-full h-full object-contain" />
+      </div>
+
+      <h3 class="text-lg font-bold text-white mb-2">{{ skill.title.toUpperCase() }}</h3>
+      <p class="text-sm text-gray-400 mb-4">{{ skill.description }}</p>
+
+      <div class="flex flex-wrap justify-center gap-2">
+        <span *ngFor="let tech of skill.technologies"
+          class="flex items-center gap-2 font-medium text-sm text-blue-600 bg-blue-100 rounded-full px-3 py-1">
+          <img [src]="technologyURL[tech]" alt="Tecnología" class="w-5 h-5" />
+          {{ tech }}
+        </span>
       </div>
     </div>
   </div>
