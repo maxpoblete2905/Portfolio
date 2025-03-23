@@ -49,12 +49,12 @@ export class SidebarComponent {
   }
 
   async downloadPDF() {
-    const fileUrl = await this.storageService.getFileUrl('portfolio/cv/curriculumMaxPoblete.pdf');
+    const fileUrl = await this.storageService.getFileUrl('portfolio/cv/cv_max_poblete.pdf');
     const link = document.createElement('a');
     link.href = fileUrl;
     link.target = '_blank';
     const fecha = new Date().toISOString().split('T')[0];
-    link.download = `cv_maxpolbete_${fecha}.pdf`;
+    link.download = `cv_max_poblete_${fecha}.pdf`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

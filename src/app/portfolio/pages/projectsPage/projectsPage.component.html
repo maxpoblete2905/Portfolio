@@ -14,7 +14,7 @@
       </div>
       <div class="p-3">
         <h3 class="text-lg font-semibold mb-1">{{ project.title.toUpperCase() }}</h3>
-        <p class="text-gray-400 mb-2">{{ project.companyName }}</p>
+        <p class="text-gray-400 mb-2">{{ project.companyName.toUpperCase() }}</p>
         <a
           [routerLink]="['/portfolio/project/', project.id ]"
           class="text-blue-300 font-semibold hover:text-blue-700">
