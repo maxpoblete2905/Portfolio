@@ -29,7 +29,7 @@ export class ContactPageComponent {
 
   constructor(private fb: FormBuilder, private firestore: AngularFirestore) {
     this.firestoreService = new FirestoreService<Contact>(this.firestore);
-    this.firestoreService.setCollection('contacts');
+    this.firestoreService.setCollection('contact-messages');
   }
 
   onSave(): void {

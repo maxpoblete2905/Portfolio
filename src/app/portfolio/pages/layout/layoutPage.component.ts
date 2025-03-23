@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './layoutPage.component.html',
   styleUrls: ['./layoutPage.component.css'],
 })
-export class LayoutPageComponent{
+export class LayoutPageComponent {
 }

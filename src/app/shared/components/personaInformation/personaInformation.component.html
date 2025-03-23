@@ -1,11 +1,7 @@
-
 <div class="bg-blue-950 shadow-lg rounded-lg p-6 mb-5">
   <h2 class="text-xl font-semibold mb-4">Información de Contacto</h2>
-  <div
-    *ngFor="let personal of personalInformation"
-    class="flex items-center mb-4 cursor-pointer"
-    (click)="realizarAccion(personal.label, personal.value)"
-  >
+  <div *ngFor="let personal of personalInformation" class="flex items-center mb-4 cursor-pointer"
+    (click)="realizarAccion(personal.label, personal.value)">
     <img [src]="personal.icon" alt="" class="h-8 w-8 mr-5" />
     <span>{{ personal.value }} </span>
   </div>
