@@ -1,4 +1,7 @@
-import {  Component } from '@angular/core';
+import { Component, Input, input, OnInit } from '@angular/core';
+import { PersonalInformation } from '../../../portfolio/pages/layout/layoutPage.component';
+import { FirestoreService } from '../../../firestore/firebase.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'shared-sidebar',
@@ -7,6 +10,18 @@ import {  Component } from '@angular/core';
 })
 export class SidebarComponent {
   public images: string[] = ['assets/perfil.jpeg', 'assets/perfil.jpeg', 'assets/perfil.jpeg'];
+  private firestoreService: FirestoreService<PersonalInformation>;
+  public name: string = '';
+  public description: string = '';
+  public university_title: string = '';
+  public update: string = '';
+
+  constructor(
+    private firestore: AngularFirestore,
+  ) {
+    this.firestoreService = new FirestoreService<PersonalInformation>(this.firestore);
+    this.firestoreService.setCollection('personal-information');
+  }
 
   public sections = [
     { route: 'projects', name: 'Proyectos', icon: 'fas fa-code' },
@@ -16,4 +31,18 @@ export class SidebarComponent {
     { route: 'contact', name: 'Contactos', icon: 'fas fa-envelope' },
   ];
 
+
+  ngOnInit(): void {
+    this.firestoreService.getDocuments().subscribe({
+      next: (personalInformation) => {
+        this.name = personalInformation[0].name.toUpperCase();
+        this.description = personalInformation[0].description
+        this.university_title = personalInformation[0].university_title
+        this.update = personalInformation[0].update
+      },
+      error: (error) => {
+        console.error('Error loading projects:', error);
+      }
+    });
+  }
 }

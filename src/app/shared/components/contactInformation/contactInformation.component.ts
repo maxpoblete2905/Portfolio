@@ -2,24 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../../firestore/firebase.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
-interface PersonalInformation {
+interface ContactInformation {
   value: string;
   label: string;
   icon: string;
 }
 
 @Component({
-  selector: 'shared-persona-information',
-  templateUrl: './personaInformation.component.html',
-  styleUrls: ['./personaInformation.component.css'],
+  selector: 'shared-contact-information',
+  templateUrl: './contactInformation.component.html',
+  styleUrls: ['./contactInformation.component.css'],
 })
-export class PersonaInformationComponent implements OnInit {
-  private firestoreService: FirestoreService<PersonalInformation>;
-  personalInformation: PersonalInformation[] = [];
+export class ContactInformationComponent implements OnInit {
+  private firestoreService: FirestoreService<ContactInformation>;
+  personalInformation: ContactInformation[] = [];
 
   constructor(private firestore: AngularFirestore) {
-    this.firestoreService = new FirestoreService<PersonalInformation>(this.firestore);
-    this.firestoreService.setCollection('personal-Information');
+    this.firestoreService = new FirestoreService<ContactInformation>(this.firestore);
+    this.firestoreService.setCollection('contact-Information');
   }
 
   ngOnInit(): void {

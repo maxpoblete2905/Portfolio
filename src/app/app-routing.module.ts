@@ -7,6 +7,7 @@ const routes: Routes = [
     path: 'portfolio',
     loadChildren: () => import('./portfolio/portfolio.module').then(m => m.PortfolioModule)
   },
+
   {
     path: '',
     redirectTo: 'portfolio',
@@ -14,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '404'
+    redirectTo: 'portfolio'
   }
 ];
 

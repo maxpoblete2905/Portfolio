@@ -11,7 +11,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ImageviewerComponent } from './components/imageviewer/imageviewer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './components/input/input.component';
-import { PersonaInformationComponent } from './components/personaInformation/personaInformation.component';
+import { ContactInformationComponent } from './components/contactInformation/contactInformation.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { PersonaInformationComponent } from './components/personaInformation/per
     MenuComponent,
     ImageviewerComponent,
     InputComponent,
-    PersonaInformationComponent
+    ContactInformationComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +41,7 @@ import { PersonaInformationComponent } from './components/personaInformation/per
     MenuComponent,
     ImageviewerComponent,
     InputComponent,
-    PersonaInformationComponent
+    ContactInformationComponent
   ]
 })
 export class SharedModule { }
