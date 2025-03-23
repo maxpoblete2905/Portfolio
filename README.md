@@ -50,5 +50,3 @@ To run the project locally, follow these steps:
 4. Run `npm install` to install the project dependencies.
 5. After the installation is complete, run `ng serve` to start the development server.
 6. Open your web browser and navigate to `http://localhost:4200/` to view the project.
-
-Now you should be able to see the project running locally on your machine.
