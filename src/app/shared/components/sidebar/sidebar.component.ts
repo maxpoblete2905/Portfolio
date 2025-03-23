@@ -2,6 +2,7 @@ import { Component, Input, input, OnInit } from '@angular/core';
 import { PersonalInformation } from '../../../portfolio/pages/layout/layoutPage.component';
 import { FirestoreService } from '../../../firestore/firebase.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { StorageService } from '../../../firestore/storage.service';
 
 @Component({
   selector: 'shared-sidebar',
@@ -18,6 +19,7 @@ export class SidebarComponent {
 
   constructor(
     private firestore: AngularFirestore,
+    private storageService: StorageService
   ) {
     this.firestoreService = new FirestoreService<PersonalInformation>(this.firestore);
     this.firestoreService.setCollection('personal-information');
@@ -44,5 +46,17 @@ export class SidebarComponent {
         console.error('Error loading projects:', error);
       }
     });
+  }
+
+  async downloadPDF() {
+    const fileUrl = await this.storageService.getFileUrl('portfolio/cv/curriculumMaxPoblete.pdf');
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.target = '_blank';
+    const fecha = new Date().toISOString().split('T')[0];
+    link.download = `cv_maxpolbete_${fecha}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }

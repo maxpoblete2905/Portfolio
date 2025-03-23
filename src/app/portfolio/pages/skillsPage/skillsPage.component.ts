@@ -3,7 +3,7 @@ import { Skill } from '../../interfaces';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FirestoreService } from '../../../firestore/firebase.service';
 import { IconServicesTsService } from '../../../shared/services/icon.services.ts.service';
-
+import { firstValueFrom, Observable } from 'rxjs';
 @Component({
   selector: 'portfolio-skills-page',
   templateUrl: './skillsPage.component.html',
@@ -15,8 +15,8 @@ export class SkillsPageComponent implements OnInit {
   private firestoreService: FirestoreService<Skill>;
 
   constructor(
-    private firestore: AngularFirestore,
     private iconServicesTsService: IconServicesTsService,
+    private firestore: AngularFirestore,
   ) {
     this.firestoreService = new FirestoreService<Skill>(this.firestore);
     this.firestoreService.setCollection('skills');
@@ -36,4 +36,5 @@ export class SkillsPageComponent implements OnInit {
   getIconForName(tech: string): string {
     return this.iconServicesTsService.getIconForTechnology(tech);
   }
+
 }

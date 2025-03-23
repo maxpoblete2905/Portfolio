@@ -1,0 +1,23 @@
+.btn-download {
+    background-color: #d32f2f;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Espacio entre icono y texto */
+    transition: background 0.3s;
+}
+
+.btn-download i {
+    font-size: 20px;
+}
+
+.btn-download:hover {
+    background-color: #b71c1c;
+}

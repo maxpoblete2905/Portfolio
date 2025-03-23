@@ -7,6 +7,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +16,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideStorage(() => getStorage()),
     AngularFireAuthModule,
     AppRoutingModule,
     SharedModule,
@@ -24,3 +27,5 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
