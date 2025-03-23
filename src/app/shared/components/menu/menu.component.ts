@@ -8,12 +8,10 @@ import { Component } from '@angular/core';
 export class MenuComponent {
 
   public images: string[] = ['assets/perfil.jpeg', 'assets/perfil.jpeg', 'assets/perfil.jpeg'];
-
   public sections = [
-    { route: 'projects', name: 'Proyectos', icon: 'fas fa-code' },
-    { route: 'skills', name: 'Habilidades', icon: 'fas fa-pencil-alt' },
-    { route: 'education', name: 'Educación', icon: 'fas fa-graduation-cap' },
-    { route: 'contact', name: 'Contactos', icon: 'fas fa-envelope' },
+    { route: 'projects', name: 'Proyectos', icon: 'https://cdn-icons-png.flaticon.com/128/1260/1260667.png' },
+    { route: 'skills', name: 'Habilidades', icon: 'https://cdn-icons-png.flaticon.com/128/1040/1040209.png' },  // Habilidades con el color adecuado
+    { route: 'education', name: 'Educación', icon: 'https://cdn-icons-png.flaticon.com/128/3135/3135753.png' },  // Educación con el color adecuado
+    { route: 'contact', name: 'Contactos', icon: 'https://cdn-icons-png.flaticon.com/128/732/732200.png' }
   ];
-
 }

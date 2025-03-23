@@ -5,60 +5,38 @@ import { Injectable } from '@angular/core';
 })
 export class IconServicesTsService {
   constructor() { }
+
   getIconForTechnology(tech: string): string {
     switch (tech) {
-    case 'Spring Boot':
-    case 'Microservicios':
-    case 'REST API':
-      return 'fab fa-java';
-    case 'Node js':
-      return 'fa-brands fa-node';
-    case 'Nest js':
-      return 'fa-brands fa-node-js';
-    case 'React':
-      return 'fa-brands fa-react';
-    case 'Angular':
-      return 'fab fa-js';
-    case 'MongoDB':
-    case 'Firestore':
-    case 'BigQuery':
-      return 'fas fa-database';
-    case 'Bootstrap':
-    case 'Tailwind CSS':
-    case 'Material UI':
-    case 'Ant Design':
-      return 'fab fa-css3-alt';
-    case 'Storybook':
-    case 'Angular Material':
-    case 'PrimeNG':
-      return 'fas fa-book-open';
-    case 'PostgreSQL':
-      return 'fa-sharp fa-solid fa-database';
-    case 'SQL MySQL':
-    case 'SQLServer':
-      return 'fas fa-database';
-    case 'Patrones de diseño':
-      return 'fas fa-paint-brush';
-    case 'Sistema de diseño':
-      return 'fas fa-layer-group';
-    case 'Docker':
-      return 'fab fa-docker';
-    case 'Git':
-    case 'Github':
-    case 'Gitlab':
-      return 'fab fa-git-alt';
-    case 'Git flow':
-    case 'Trunk base':
-      return 'fas fa-code-branch';
-    case 'Google Cloud Platform (GCP)':
-      return 'fa-brands fa-google';
-    case 'Azure':
-      return 'fa-regular fa-cloud';
-    case 'AWS':
-      return 'fa-solid fa-cloud';
-    default:
-      return 'fas fa-code';
+      case 'Spring Boot':
+      case 'Microservicios':
+      case 'REST API':
+        return 'https://cdn-icons-png.flaticon.com/128/919/919854.png';
+      case 'Node js':
+      case 'Nest js':
+        return 'https://cdn-icons-png.flaticon.com/128/919/919825.png';
+      case 'React':
+        return 'https://cdn-icons-png.flaticon.com/128/919/919851.png';
+      case 'Angular':
+        return 'https://cdn-icons-png.flaticon.com/128/226/226269.png';
+      case 'MongoDB':
+      case 'Firestore':
+      case 'BigQuery':
+        return 'https://cdn-icons-png.flaticon.com/128/919/919836.png';
+      case 'PostgreSQL':
+        return 'https://cdn-icons-png.flaticon.com/128/919/919853.png';
+      case 'Docker':
+        return 'https://cdn-icons-png.flaticon.com/128/919/919853.png';
+      case 'Git':
+      case 'Github':
+      case 'Gitlab':
+        return 'https://cdn-icons-png.flaticon.com/128/919/919847.png';
+      case 'AWS':
+        return 'https://cdn-icons-png.flaticon.com/128/919/919828.png';
+      case 'Azure':
+        return 'https://cdn-icons-png.flaticon.com/128/919/919829.png';
+      default:
+        return 'https://cdn-icons-png.flaticon.com/128/1260/1260667.png';
     }
   }
-
 }
