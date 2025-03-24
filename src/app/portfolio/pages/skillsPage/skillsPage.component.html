@@ -18,7 +18,7 @@
         <span *ngFor="let tech of skill.technologies"
           class="flex items-center gap-2 font-medium text-sm text-blue-400 bg-gray-700 rounded-full px-3 py-1 shadow-md">
           <img [src]="technologyURL[tech]" alt="Tecnología" class="w-5 h-5" />
-          {{ tech }}
+          {{ transform(tech) }}
         </span>
       </div>
     </div>
@@ -42,7 +42,7 @@
         <span *ngFor="let tech of skill.technologies"
           class="flex items-center gap-2 font-medium text-sm text-blue-600 bg-blue-100 rounded-full px-3 py-1">
           <img [src]="technologyURL[tech]" alt="Tecnología" class="w-5 h-5" />
-          {{ tech }}
+          {{ transform(tech) }}
         </span>
       </div>
     </div>

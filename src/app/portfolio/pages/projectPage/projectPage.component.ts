@@ -5,6 +5,7 @@ import { switchMap } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FirestoreService } from '../../../firestore/firebase.service';
 import { IconServicesTsService } from '../../../shared/services/icon.services.ts.service';
+import { GlobalDataService } from '../../../firestore/global-data.service';
 
 @Component({
   selector: 'portfolio-project-page',
@@ -15,7 +16,6 @@ export class ProjectPageComponent implements OnInit {
   public title: string = 'Proyect';
   public id: number = 0;
   private firebaseDarkMode: FirestoreService<DarkMode>;
-  public darkMode: boolean = true;
   public project: Project = {
     title: '',
     description: '',
@@ -26,14 +26,17 @@ export class ProjectPageComponent implements OnInit {
     technologies: [],
     views: [],
   };
-
   private firestoreService: FirestoreService<Project>;
+  public currentIndex: number = 0;
+  public technologyURL: Record<string, string> = {};
+  public darkMode: boolean = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private firestore: AngularFirestore,
     private router: Router,
-    private iconServicesTsService: IconServicesTsService
+    private globalDataService: GlobalDataService,
+
   ) {
     this.firestoreService = new FirestoreService<Project>(this.firestore);
     this.firestoreService.setCollection('projects');
@@ -41,15 +44,18 @@ export class ProjectPageComponent implements OnInit {
     this.firebaseDarkMode.setCollection('style');
   }
 
+  transform(value: string): string {
+    return value ? value.split('_').join(' ') : value;
+  }
+
   ngOnInit(): void {
-    this.firebaseDarkMode.getDocuments().subscribe({
-      next: (data: DarkMode[]) => {
-        console.log(data)
-        this.darkMode = data[0].isStyleOne
-      },
-      error: (error: unknown) => {
-        console.error('Error cargando habilidades:', error);
-      }
+
+    this.globalDataService.technologyURL$.subscribe(urls => {
+      this.technologyURL = urls;
+    });
+
+    this.globalDataService.darkMode$.subscribe(darkMode => {
+      this.darkMode = darkMode;
     });
 
     this.activatedRoute.params
@@ -63,12 +69,6 @@ export class ProjectPageComponent implements OnInit {
         this.project = project;
       });
   }
-
-  getIconForName(tech: string): string {
-    return this.iconServicesTsService.getIconForTechnology(tech);
-  }
-
-  public currentIndex: number = 0;
 
   nextImage(): void {
     if (this.currentIndex < this.project.views.length - 1) {

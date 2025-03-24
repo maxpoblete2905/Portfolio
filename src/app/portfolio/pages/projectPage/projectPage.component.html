@@ -39,9 +39,8 @@
         <p class="font-semibold text-lg text-white">Tecnologías utilizadas:</p>
         <div class="flex flex-wrap gap-2 mt-2">
           <span *ngFor="let tech of project.technologies"
-            class="flex items-center text-sm font-semibold text-white bg-blue-600 rounded-full px-3 py-1 shadow-md">
-            <i class="{{ getIconForName(tech) }} text-lg mr-2"></i>
-            {{ tech }}
+            class="flex items-center gap-2 font-medium text-sm text-blue-400 bg-gray-700 rounded-full px-3 py-1 shadow-md">
+            <img [src]="technologyURL[tech]" alt="Tecnología" class="w-5 h-5" />
           </span>
         </div>
       </div>
@@ -95,15 +94,15 @@
         <p class="font-semibold text-lg text-white">Tecnologías utilizadas:</p>
         <div class="flex flex-wrap gap-2 mt-2">
           <span *ngFor="let tech of project.technologies"
-            class="flex items-center text-sm font-semibold text-white bg-blue-400 rounded-full px-3 py-1 shadow-md">
-            <i class="{{ getIconForName(tech) }} text-lg mr-2"></i>
-            {{ tech }}
+            class="flex items-center text-sm font-semibold text-white rounded-full px-3 py-1">
+            <img [src]="technologyURL[tech]" alt="Tecnología" class="w-8 h-8" />
+        
           </span>
         </div>
       </div>
 
       <a [routerLink]="['/portfolio/projects/']"
-        class="bg-blue-400 hover:bg-blue-600 text-white py-2 px-4 md:px-5 rounded-lg shadow-md text-lg transition duration-300 mt-4">
+        class="bg-blue-800 text-center hover:bg-blue-600 text-white py-2 px-4 md:px-5 rounded-lg shadow-md text-lg transition duration-300 mt-4">
         Volver
       </a>
     </div>

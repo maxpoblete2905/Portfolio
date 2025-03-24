@@ -1,8 +1,7 @@
 import { Component, Input, input, OnInit } from '@angular/core';
-import { PersonalInformation } from '../../../portfolio/pages/layout/layoutPage.component';
 import { FirestoreService } from '../../../firestore/firebase.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { StorageService } from '../../../firestore/storage.service';
+import { PersonalInformation } from '../../../portfolio/interfaces/personal.interfece';
 
 @Component({
   selector: 'shared-sidebar',

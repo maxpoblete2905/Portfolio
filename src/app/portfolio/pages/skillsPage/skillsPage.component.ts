@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DarkMode, Skill } from '../../interfaces';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FirestoreService } from '../../../firestore/firebase.service';
-import { FileData, StorageService } from '../../../firestore/storage.service';
+import { GlobalDataService } from '../../../firestore/global-data.service';
 
 @Component({
   selector: 'portfolio-skills-page',
@@ -10,59 +10,39 @@ import { FileData, StorageService } from '../../../firestore/storage.service';
   styleUrls: ['./skillsPage.component.css'],
 })
 export class SkillsPageComponent implements OnInit {
-  public title: string = 'Habilidades';
-  public skills: Skill[] = [];
   private firestoreService: FirestoreService<Skill>;
-  public technologyStorageList: FileData[] = [];
-  public technologyURL: Record<string, string> = {};
-  public pathStorage: string = 'portfolio/tecnologias';
+  public title: string = 'Habilidades'
+  public skills: Skill[] = [];
   public pathFirestore: string = 'skills'
-  private firebaseDarkMode: FirestoreService<DarkMode>;
+  public technologyURL: Record<string, string> = {};
   public darkMode: boolean = true;
 
   constructor(
+    private globalDataService: GlobalDataService,
     private firestore: AngularFirestore,
-    private storageService: StorageService
+
   ) {
     this.firestoreService = new FirestoreService<Skill>(this.firestore);
-    this.firebaseDarkMode = new FirestoreService<DarkMode>(this.firestore);
-
     this.firestoreService.setCollection(this.pathFirestore);
-    this.firebaseDarkMode.setCollection('style');
+  }
+
+  transform(value: string): string {
+    return value ? value.split('_').join(' ').toLowerCase() : value.toLowerCase();
   }
 
   async ngOnInit(): Promise<void> {
     try {
-      this.firebaseDarkMode.getDocuments().subscribe({
-        next: (data: DarkMode[]) => {
-          console.log(data)
-          this.darkMode = data[0].isStyleOne
-        },
-        error: (error: unknown) => {
-          console.error('Error cargando habilidades:', error);
-        }
+      this.globalDataService.technologyURL$.subscribe(urls => {
+        this.technologyURL = urls;
       });
-      this.technologyStorageList = await this.cargarTodasLasTecnologias(this.pathStorage);
-      const techMap = new Map<string, string>();
 
-      // Convertimos la lista en un mapa para búsqueda rápida
-      this.technologyStorageList.forEach(({ name, url }) => {
-        const techName = name.split('.')[0]; // Obtener nombre sin extensión
-        techMap.set(techName, url);
+      this.globalDataService.darkMode$.subscribe(darkMode => {
+        this.darkMode = darkMode;
       });
 
       this.firestoreService.getDocuments().subscribe({
         next: (skills: Skill[]) => {
           this.skills = skills;
-
-          // Asignar URLs basándose en el mapa
-          this.skills.forEach(skill => {
-            skill.technologies.forEach(tech => {
-              if (techMap.has(tech)) {
-                this.technologyURL[tech] = techMap.get(tech)!;
-              }
-            });
-          });
         },
         error: (error: unknown) => {
           console.error('Error cargando habilidades:', error);
@@ -74,12 +54,4 @@ export class SkillsPageComponent implements OnInit {
     }
   }
 
-  private async cargarTodasLasTecnologias(path: string): Promise<FileData[]> {
-    try {
-      return await this.storageService.getAllFileUrls(path);
-    } catch (error) {
-      console.error('Error obteniendo archivos de tecnologías:', error);
-      return [];
-    }
-  }
 }

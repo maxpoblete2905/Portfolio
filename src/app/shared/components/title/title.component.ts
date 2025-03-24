@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { PersonalInformation } from '../../../portfolio/pages/layout/layoutPage.component';
 
 @Component({
   selector: 'shared-title',
